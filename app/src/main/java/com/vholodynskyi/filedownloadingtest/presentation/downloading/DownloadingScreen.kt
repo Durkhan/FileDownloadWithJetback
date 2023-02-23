@@ -87,7 +87,7 @@ fun CircularProgressBar(
     var animDuration = mutableStateOf<Int>(10000)
 
     viewModel.progress.observe(context, Observer {
-        percentage.value = it.coerceIn(0f, 100f).toFloat()
+        percentage.value = it.coerceIn(0f, 1f).toFloat()
         animDuration.value = (100 - percentage.value.toInt()) * 1000
     })
     var animationPlayed by remember {

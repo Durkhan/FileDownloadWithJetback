@@ -52,7 +52,8 @@ class MainActivity : ComponentActivity(),EasyPermissions.PermissionCallbacks{
             this,
             "You need to accept storage permission to use this app",
             101,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.MANAGE_EXTERNAL_STORAGE
         )
 
     }

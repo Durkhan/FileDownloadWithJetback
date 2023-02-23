@@ -2,12 +2,10 @@ package com.vholodynskyi.filedownloadingtest.domain.use_case
 
 import android.os.Environment
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.vholodynskyi.filedownloadingtest.common.Resource
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.io.BufferedInputStream
@@ -58,7 +56,7 @@ class DownloadFileUseCase @Inject constructor() {
                 progress.postValue(((downloadedFileSize * 100)/connection.contentLength).toFloat())
                 Log.d("DownloadingTest", "chunk ${progress.value}")
 
-               delay(1000)
+//               delay(1000)
             }
 
             emit(Resource.Success<String>(downloadTarget.path))
@@ -74,9 +72,7 @@ class DownloadFileUseCase @Inject constructor() {
         }
     }.flowOn(Dispatchers.IO)
 
-    private fun fileName(fileUrl: String): String = fileUrl.substring(
-        fileUrl.lastIndexOf("/") + 1, fileUrl.length
-    ) + "${System.currentTimeMillis()}"
+    private fun fileName(fileUrl: String): String ="filename.pdf"
 
     private fun targetFile(fileName: String): File = File(downloadsDirectory, fileName)
 

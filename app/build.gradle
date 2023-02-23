@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'com.vholodynskyi.filedownloadingtest'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.vholodynskyi.filedownloadingtest"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -26,6 +26,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
         }
     }
     compileOptions {
@@ -59,6 +62,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-permissions:0.21.1-beta"
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
+
     kapt "com.google.dagger:hilt-android-compiler:2.37"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
@@ -71,5 +75,8 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     implementation 'pub.devrel:easypermissions:3.0.0'
     implementation "androidx.compose.animation:animation:1.0.0-alpha01"
+    //workmanager
+    implementation 'androidx.work:work-runtime-ktx:2.8.0'
+    implementation "androidx.work:work-runtime:2.8.0"
 
 }
